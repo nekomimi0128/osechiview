@@ -1,0 +1,8 @@
+<input id="u" placeholder="https://..." />
+<button onclick="go()">🍱 おせち！</button>
+<script>
+function go() {
+  const url = btoa(document.getElementById("u").value);
+  location.href = "https://osechi.pages.dev/view.html#u=" + url;
+}
+</script>
