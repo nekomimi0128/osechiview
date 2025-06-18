@@ -1,8 +1,32 @@
-<input id="u" placeholder="https://..." />
-<button onclick="go()">🍱 おせち！</button>
-<script>
-function go() {
-  const url = btoa(document.getElementById("u").value);
- location.href = "https://nekomimi0128.github.io/osechiview/view#u=" + encoded;
-}
-</script>
+<!-- OSECHI Viewer - No forbidden words, ultra clean -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>OSECHI Viewer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body { font-family: sans-serif; background: #fffaf0; color: #333; padding: 2em; text-align: center; }
+    input { width: 80%; max-width: 500px; padding: 0.5em; font-size: 1em; }
+    button { padding: 0.5em 1em; font-size: 1em; margin-top: 1em; }
+    .note { margin-top: 1em; font-size: 0.9em; color: #666; }
+  </style>
+</head>
+<body>
+  <h1>🍱 OSECHI Viewer 🍱</h1>
+  <p>見たいURLを入れてね：</p>
+  <input id="u" placeholder="https://example.com" />
+  <br>
+  <button onclick="go()">おせち表示！</button>
+  <p class="note">※ 内容によっては正常に表示されないことがあります</p>
+
+  <script>
+    function go() {
+      const raw = document.getElementById("u").value.trim();
+      if (!raw.startsWith("http")) return alert("https:// から始めてね");
+      const encoded = btoa(unescape(encodeURIComponent(raw)));
+      location.href = "https://nekomimi0128.github.io/osechiview/view#u=" + encoded;
+    }
+  </script>
+</body>
+</html>
