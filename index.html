@@ -25,7 +25,8 @@
       const raw = document.getElementById("u").value.trim();
       if (!raw.startsWith("http")) return alert("https:// から始めてね");
       const encoded = btoa(unescape(encodeURIComponent(raw)));
-      location.href = "https://nekomimi0128.github.io/osechiview/view#u=" + encoded;
+    const target = "https://osechi.pages.dev/view.html#u=" + encoded;
+
     }
   </script>
 </body>
